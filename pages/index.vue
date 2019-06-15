@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         遊びページ
       </h2>
+      {{ message }}
       <p>世界標準時なので＋9時間してください</p>
       <weather-list :weather-list="weatherResponse.list" />
     </div>
@@ -22,6 +23,12 @@ export default {
   components: {
     Logo,
     WeatherList
+  },
+  data: function() {
+    return {
+      // 空の値として message を宣言する
+      message: ''
+    }
   },
   async asyncData({ $axios }) {
     const weatherResponse = await $axios.$get(
