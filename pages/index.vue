@@ -9,7 +9,7 @@
         遊びページ
       </h2>
       {{ message }}
-      <p>世界標準時なので＋9時間してください</p>
+      <p class="caution">世界標準時なので＋9時間してください</p>
       <weather-list :weather-list="weatherResponse.list" />
     </div>
   </div>
@@ -69,5 +69,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.caution {
+  margin-top: 12px;
 }
 </style>
