@@ -32,7 +32,7 @@ export default {
   },
   async asyncData({ $axios }) {
     const weatherResponse = await $axios.$get(
-      'http://api.openweathermap.org/data/2.5/forecast?q=Sendai&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
+      'https://api.openweathermap.org/data/2.5/forecast?q=Sendai&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
     )
     return { weatherResponse }
   }
