@@ -1,7 +1,5 @@
 <template>
   <div>
-    {{ data }}
-
     <weather-item
       v-for="(weather, index) in weatherList"
       :key="index"
@@ -20,7 +18,10 @@ export default {
   props: {
     weatherList: {
       type: Array,
-      required: true
+      required: true,
+      default: function() {
+        return []
+      }
     }
   }
 }
