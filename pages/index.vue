@@ -17,7 +17,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import WeatherList from '~/components/WeatherList.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -29,13 +29,12 @@ export default {
       list: 'weather/list'
     })
   },
-  created() {
-    this.fetchWeatherReport()
-  },
-  methods: {
-    ...mapActions({
-      fetchWeatherReport: 'weather/fetchWeatherReport'
-    })
+  async fetch({ app, store }) {
+    const weatherResponse = await app.$axios.$get(
+      'https://api.openweathermap.org/data/2.5/forecast?q=Sendai&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
+    )
+
+    store.commit('weather/setList', weatherResponse.list)
   }
 }
 </script>
