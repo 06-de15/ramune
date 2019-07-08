@@ -6,7 +6,7 @@ const app = express()
 
 const config = {
   dev: false,
-  debug: false,
+  debug: true,
   buildDir: 'nuxt',
   build: {
     publicPath: '/public/'

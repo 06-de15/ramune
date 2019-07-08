@@ -1,5 +1,5 @@
 export default {
-  mode: 'spa',
+  // mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -48,6 +48,8 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    publicPath: '/public/',
+    extractCSS: true,
     extend(config, ctx) {}
   }
 }

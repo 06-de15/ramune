@@ -8,7 +8,9 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build && npm run build:delete && npm run build:copy",
+    "build:delete": "rm -rf ./functions/nuxt/* && rm -rf ./public/*",
+    "build:copy": "cp -R .nuxt/* ./functions/nuxt/ && cp -R .nuxt/dist/client/ ./public/assets && cp -R static/* ./public",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
