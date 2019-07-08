@@ -16,8 +16,13 @@ export const getters = {
 
 // 非同期処理ができるメソッド郡
 export const actions = {
-  feachWeaterReport({ commit }) {
-    // TODO お天気取ってくるよ
+  async fetchWeaterReport({ commit }) {
+    const weatherResponse = await this.$axios.$get(
+      'http://weather.livedoor.com/forecast/webservice/json/v1?city=040010'
+    )
+    commit('setForecasts', weatherResponse.forecasts)
+    commit('setTitle', weatherResponse.title)
+    commit('setDescription', weatherResponse.description.text)
   }
 }
 
