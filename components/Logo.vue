@@ -1,6 +1,7 @@
 <template>
   <img id="logo" src="/logo.png" />
 </template>
+
 <style scoped>
 #logo {
   width: 200px;
