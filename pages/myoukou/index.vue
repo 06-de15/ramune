@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <h1 class="title">
-        妙高高原
+        妙高市新井
       </h1>
       <p class="caution">世界標準時なので＋9時間してください</p>
       <weather-list :weather-list="list" />
@@ -26,7 +26,7 @@ export default {
   },
   async fetch({ app, store }) {
     const weatherResponse = await app.$axios.$get(
-      'https://api.openweathermap.org/data/2.5/forecast?q=Arai&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
+      'https://api.openweathermap.org/data/2.5/forecast?lat=37.023661&lon=138.258819&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
     )
 
     store.commit('weather/setList', weatherResponse.list)
