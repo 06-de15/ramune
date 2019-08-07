@@ -26,7 +26,7 @@ export default {
   },
   async fetch({ app, store }) {
     const weatherResponse = await app.$axios.$get(
-      'https://api.openweathermap.org/data/2.5/forecast?lat=37.023661&lon=138.258819&APPID=f409941d71057b26fbb04ad1858159f8'
+      'https://api.openweathermap.org/data/2.5/forecast?lat=37.023661&lon=138.258819&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
     )
 
     store.commit('weather/setList', weatherResponse.list)
