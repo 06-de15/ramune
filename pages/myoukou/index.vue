@@ -1,13 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <logo />
       <h1 class="title">
-        ramune
+        妙高市新井
       </h1>
-      <h2 class="subtitle">
-        遊びページ
-      </h2>
       <p class="caution">世界標準時なので＋9時間してください</p>
       <weather-list :weather-list="list" />
     </div>
@@ -16,12 +12,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from '~/components/Logo.vue'
-import WeatherList from '~/components/WeatherList.vue'
+import WeatherList from '~/components/WeatherList'
 
 export default {
-  components: {
-    Logo,
+  components: { WeatherList },
+  component: {
     WeatherList
   },
   computed: {
@@ -31,7 +26,7 @@ export default {
   },
   async fetch({ app, store }) {
     const weatherResponse = await app.$axios.$get(
-      'https://api.openweathermap.org/data/2.5/forecast?q=Sendai&units=metric&APPID=f409941d71057b26fbb04ad1858159f8'
+      'https://api.openweathermap.org/data/2.5/forecast?lat=37.023661&lon=138.258819&APPID=f409941d71057b26fbb04ad1858159f8'
     )
 
     store.commit('weather/setList', weatherResponse.list)
@@ -39,7 +34,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -57,21 +52,5 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-
-.caution {
-  margin-top: 12px;
 }
 </style>
