@@ -15,9 +15,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Logo from '~/components/Logo.vue'
 import WeatherList from '~/components/WeatherList.vue'
-import { mapGetters } from 'vuex'
 
 export default {
   components: {
