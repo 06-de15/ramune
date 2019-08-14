@@ -1,6 +1,6 @@
 <template>
   <div class="mybox">
-    <p>{{ weather.dt_txt }}</p>
+    <p>{{ weather.dt_txt | moment }}</p>
     <p>{{ weather.main.temp }}°C</p>
     <img
       id="icon"
@@ -9,7 +9,14 @@
   </div>
 </template>
 <script>
+import moment from 'moment-timezone'
+
 export default {
+  filters: {
+    moment(timestamp) {
+      moment.tz.set(timestamp, 'Asia/Tokyo').format('ha z')
+    }
+  },
   props: {
     weather: {
       required: true,
