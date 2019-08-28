@@ -1,9 +1,10 @@
 HTMLとCSSの勉強のためプロフィールページの作成
 
 ## HTMLをしようするには
-index.htmlを作成した場合初めに
+初めにindex.htmlを作成する
+その時に
 
-```
+```html
 <!doctype html>
 ```
 を1行目に書く必要がある。これがないとhtmlが使えない。
@@ -11,7 +12,7 @@ index.htmlを作成した場合初めに
 ### htmlタグ内に必要なもの
 上記の物を1行目に書いたら
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,4 +52,4 @@ ddとはdefinition descriptionの略でdtタグに用語、ddタグに用語の�
     </dl>
 ```
 
-のような使い方をする。
+こんな感じでやる。
